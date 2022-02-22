@@ -1,5 +1,5 @@
+import 'package:tennis/tennis.dart';
 import 'package:test/test.dart';
-import '../bin/tennis.dart';
 
 void main() {
   test('Start game both player should be score Love', () {
