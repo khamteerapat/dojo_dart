@@ -15,4 +15,6 @@ class Tennis {
       return "Fifteen : Love";
     }
   }
+
+  void playerBwinBall() {}
 }

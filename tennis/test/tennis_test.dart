@@ -25,4 +25,20 @@ void main() {
     //Assert
     expect(actualScore, expectedScore);
   });
+
+  test(
+      'Player B and Player A get one ball should be Player A and Player B score fifteen',
+      () {
+    // Arrange
+    var expectedScore = "Fifteen : Fifteen";
+
+    //Action
+    var game = Tennis();
+    game.playerBwinBall();
+    game.playerAwinBall();
+    var actualScore = game.getScore();
+
+    //Assert
+    expect(actualScore, expectedScore);
+  });
 }
