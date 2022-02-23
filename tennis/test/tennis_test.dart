@@ -2,7 +2,7 @@ import 'package:tennis/tennis.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('Start game both player should be score Love', () {
+  test('Start game both player score should be Love : Love', () {
     // Arrange
     var expectedScore = "Love : Love";
 
@@ -13,7 +13,7 @@ void main() {
     //Assert
     expect(actualScore, expectedScore);
   });
-  test('Player A win first ball should be Player A score fifteen', () {
+  test('Player A win first ball score should be Fifteen : Love', () {
     // Arrange
     var expectedScore = "Fifteen : Love";
 
@@ -27,7 +27,7 @@ void main() {
   });
 
   test(
-      'Player B and Player A get one ball should be Player A and Player B score fifteen',
+      'Player B and Player A get one ball score should be Fifteen : Fifteen',
       () {
     // Arrange
     var expectedScore = "Fifteen : Fifteen";
