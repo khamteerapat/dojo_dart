@@ -8,10 +8,21 @@ void main() {
 
     //Action
     var game = Tennis();
-    var actualScore = game.start();
+    var actualScore = game.getScore();
 
     //Assert
+    expect(actualScore, expectedScore);
+  });
+  test('Player A win first ball should be Player A score fifteen', () {
+    // Arrange
+    var expectedScore = "Fifteen : Love";
 
+    //Action
+    var game = Tennis();
+    game.playerAwinBall();
+    var actualScore = game.getScore();
+
+    //Assert
     expect(actualScore, expectedScore);
   });
 }
