@@ -1,20 +1,24 @@
 class Tennis {
-  var playerA = 0;
-  String start() {
-    return "Love : Love";
-  }
+  var _playerA = 0;
+  var _playerB = 0;
+  
 
   void playerAwinBall() {
-    playerA = 1;
+    _playerA = 1;
   }
 
   getScore() {
-    if (playerA == 0) {
+    if (_playerA == _playerB && _playerA==1) {
+      return "Fifteen : Fifteen";
+    }
+    if (_playerA == 0) {
       return "Love : Love";
     } else {
       return "Fifteen : Love";
     }
   }
 
-  void playerBwinBall() {}
+  void playerBwinBall() {
+    _playerB = 1;
+  }
 }
