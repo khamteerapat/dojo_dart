@@ -8,7 +8,7 @@ void main() {
 
     //Action
     var game = Tennis();
-    var actualScore = game.getScore();
+    var actualScore = game.score;
 
     //Assert
     expect(actualScore, expectedScore);
@@ -20,7 +20,7 @@ void main() {
     //Action
     var game = Tennis();
     game.playerAwinBall();
-    var actualScore = game.getScore();
+    var actualScore = game.score;
 
     //Assert
     expect(actualScore, expectedScore);
@@ -35,7 +35,7 @@ void main() {
     var game = Tennis();
     game.playerBwinBall();
     game.playerAwinBall();
-    var actualScore = game.getScore();
+    var actualScore = game.score;
 
     //Assert
     expect(actualScore, expectedScore);
@@ -52,7 +52,25 @@ void main() {
     game.playerBwinBall();
     game.playerAwinBall();
     game.playerAwinBall();
-    var actualScore = game.getScore();
+    var actualScore = game.score;
+
+    //Assert
+    expect(actualScore, expectedScore);
+  });
+
+  test(
+      'Player A win three ball and Player B win one ball score should be Fourty : Fifteen',
+      () {
+    // Arrange
+    var expectedScore = "Fourty : Fifteen";
+
+    //Action
+    var game = Tennis();
+    game.playerBwinBall();
+    game.playerAwinBall();
+    game.playerAwinBall();
+    game.playerAwinBall();
+    var actualScore = game.score;
 
     //Assert
     expect(actualScore, expectedScore);

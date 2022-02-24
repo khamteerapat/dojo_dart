@@ -1,17 +1,17 @@
 class Tennis {
   var _playerA = 0;
   var _playerB = 0;
-  List list = ['Love', 'Fifteen', 'Thirty'];
+  final _listScore = ['Love', 'Fifteen', 'Thirty', 'Fourty'];
+
+  get score {
+    return '${_listScore[_playerA]} : ${_listScore[_playerB]}';
+  }
 
   void playerAwinBall() {
-    ++_playerA;
+    _playerA++;
   }
 
   void playerBwinBall() {
-    ++_playerB;
-  }
-
-  getScore() {
-    return '${list[_playerA]} : ${list[_playerB]}';
+    _playerB++;
   }
 }
