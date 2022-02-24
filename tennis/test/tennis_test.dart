@@ -26,8 +26,7 @@ void main() {
     expect(actualScore, expectedScore);
   });
 
-  test(
-      'Player B and Player A get one ball score should be Fifteen : Fifteen',
+  test('Player B and Player A get one ball score should be Fifteen : Fifteen',
       () {
     // Arrange
     var expectedScore = "Fifteen : Fifteen";
@@ -41,6 +40,7 @@ void main() {
     //Assert
     expect(actualScore, expectedScore);
   });
+
   test(
       'Player A win two ball and Player B win one ball score should be Thirty : Fifteen',
       () {
