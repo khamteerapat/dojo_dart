@@ -75,4 +75,22 @@ void main() {
     //Assert
     expect(actualScore, expectedScore);
   });
+
+  test('Player A win four ball score should be Player A Win', () {
+    // Arrange
+    var expectedScore = "Player A Win";
+
+    //Action
+    var game = Tennis();
+    game.playerBwinBall();
+    game.playerAwinBall();
+    game.playerAwinBall();
+    game.playerAwinBall();
+    game.playerAwinBall();
+
+    var actualScore = game.score;
+
+    //Assert
+    expect(actualScore, expectedScore);
+  });
 }
