@@ -26,8 +26,9 @@ void main() {
     expect(actualNetAmount, expectedNetAmount);
   });
 
-
-  test('รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 1000.00 บาท แล้วยอดคงเหลือ 117.00 บาท', () {
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 1000.00 บาท แล้วยอดคงเหลือ 117.00 บาท',
+      () {
     var remainingAmount = 117;
 
     //Action
@@ -40,7 +41,9 @@ void main() {
     expect(actualRemainingAmount, remainingAmount);
   });
 
-  test('รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาท แล้วยอดคงเหลือ 1017.00 บาท', () {
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาท แล้วยอดคงเหลือ 1017.00 บาท',
+      () {
     var remainingAmount = 1017;
 
     //Action
@@ -53,7 +56,9 @@ void main() {
     expect(actualRemainingAmount, remainingAmount);
   });
 
-  test('รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสองครั้ง แล้วยอดคงเหลือ 917.00 บาท', () {
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสองครั้ง แล้วยอดคงเหลือ 917.00 บาท',
+      () {
     var remainingAmount = 917;
 
     //Action
@@ -67,7 +72,9 @@ void main() {
     expect(actualRemainingAmount, remainingAmount);
   });
 
-  test('รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสามครั้ง banknotes 500.00 บาทหนึ่งครั้ง แล้วยอดคงเหลือ 917.00 บาท', () {
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสามครั้ง banknotes 500.00 บาทหนึ่งครั้ง แล้วยอดคงเหลือ 917.00 บาท',
+      () {
     var remainingAmount = 317;
 
     //Action
@@ -81,6 +88,27 @@ void main() {
 
     //Assert
     expect(actualRemainingAmount, remainingAmount);
+  });
+
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสามครั้ง banknotes 500.00 บาทหนึ่งครั้ง แล้วยอดคงเหลือ 317.00 บาท เเล้วยอดสุทธิยังคงเป็น 1117.00 บาท',
+      () {
+    var remainingAmount = 317;
+    var netAmount = 1117;
+
+    //Action
+    var payment = Payment();
+    payment.setNetAmount(1117.00);
+    payment.pay(100.00);
+    payment.pay(100.00);
+    payment.pay(100.00);
+    payment.pay(500.00);
+    var actualRemainingAmount = payment.getRemainingAmount;
+    double actualNetAmount = payment.getNetAmount;
+
+    //Assert
+    expect(actualRemainingAmount, remainingAmount);
+    expect(actualNetAmount, netAmount);
   });
 }
 
