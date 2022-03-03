@@ -91,9 +91,8 @@ void main() {
   });
 
   test(
-      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสามครั้ง banknotes 500.00 บาทหนึ่งครั้ง แล้วยอดคงเหลือ 317.00 บาท เเล้วยอดสุทธิยังคงเป็น 1117.00 บาท',
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่ม banknotes 100.00 บาทสามครั้ง banknotes 500.00 บาทหนึ่งครั้ง เเล้วยอดสุทธิยังคงเป็น 1117.00 บาท',
       () {
-    var remainingAmount = 317;
     var netAmount = 1117;
 
     //Action
@@ -103,11 +102,9 @@ void main() {
     payment.pay(100.00);
     payment.pay(100.00);
     payment.pay(500.00);
-    var actualRemainingAmount = payment.getRemainingAmount;
     double actualNetAmount = payment.getNetAmount;
 
     //Assert
-    expect(actualRemainingAmount, remainingAmount);
     expect(actualNetAmount, netAmount);
   });
 }

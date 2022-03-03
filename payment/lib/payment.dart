@@ -6,11 +6,15 @@ class Payment {
   get getRemainingAmount => _remainingAmount;
 
   void pay(double amount) {
-    _netAmount = _netAmount - amount;
-    _remainingAmount = _netAmount;
+    _remainingAmount = _remainingAmount - amount;
   }
 
   void setNetAmount(double netAmount) {
     _netAmount = netAmount;
+    setRemainingAmount();
+  }
+
+  void setRemainingAmount() {
+    _remainingAmount = _netAmount;
   }
 }
