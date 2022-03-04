@@ -110,42 +110,57 @@ void main() {
 
   test(
       'รับยอดสุทธิ 1117.00 แล้วกดปุ่มตัวเลขเงิน ครั้งที่ 1 กดเลข 9,0 แล้วกดชำระเงินแล้วยอดคงเหลือ 1027.00 บาท',
-          () {
-        var remainingAmount = 1027;
+      () {
+    var remainingAmount = 1027;
 
-        //Action
-        var payment = Payment();
-        payment.initAmount(1117.00);
-        payment.inputNumber('9');
-        payment.inputNumber('0');
-        payment.payFromInput();
-        var actualRemainingAmount = payment.remainingAmount;
+    //Action
+    var payment = Payment();
+    payment.initAmount(1117.00);
+    payment.inputNumber('9');
+    payment.inputNumber('0');
+    payment.payFromInput();
+    var actualRemainingAmount = payment.remainingAmount;
 
-        //Assert
-        expect(actualRemainingAmount, remainingAmount);
-      });
+    //Assert
+    expect(actualRemainingAmount, remainingAmount);
+  });
 
   test(
       'รับยอดสุทธิ 1117.00 แล้วกดปุ่มตัวเลขเงิน ครั้งที่ 1 กดเลข 9,0 แล้วกดชำระเงิน ครั้งที่ 2 กดเลข 5,0,0 แล้วกดชำระเงินแล้วยอดคงเหลือ 527.00 บาท',
-          () {
-        var remainingAmount = 527;
+      () {
+    var remainingAmount = 527;
 
-        //Action
-        var payment = Payment();
-        payment.initAmount(1117.00);
-        payment.inputNumber('9');
-        payment.inputNumber('0');
-        payment.payFromInput();
-        payment.inputNumber('5');
-        payment.inputNumber('0');
-        payment.inputNumber('0');
-        payment.payFromInput();
-        var actualRemainingAmount = payment.remainingAmount;
+    //Action
+    var payment = Payment();
+    payment.initAmount(1117.00);
+    payment.inputNumber('9');
+    payment.inputNumber('0');
+    payment.payFromInput();
+    payment.inputNumber('5');
+    payment.inputNumber('0');
+    payment.inputNumber('0');
+    payment.payFromInput();
+    var actualRemainingAmount = payment.remainingAmount;
 
-        //Assert
-        expect(actualRemainingAmount, remainingAmount);
-      });
+    //Assert
+    expect(actualRemainingAmount, remainingAmount);
+  });
 
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่มตัวเลขเงิน ครั้งที่ 1 กดเลข 9 หน้าจอโชว์เลข9',
+      () {
+    var display = "9";
+
+    //Action
+    var payment = Payment();
+    payment.initAmount(1117.00);
+    payment.inputNumber('9');
+
+    var actualDisplay = payment.display;
+
+    //Assert
+    expect(actualDisplay, display);
+  });
 }
 
 /**

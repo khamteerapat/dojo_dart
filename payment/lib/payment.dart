@@ -6,6 +6,8 @@ class Payment {
   get netAmount => _netAmount;
   get remainingAmount => _remainingAmount;
 
+  get display => null;
+
   void pay(double amount) {
     _remainingAmount = _remainingAmount - amount;
   }
