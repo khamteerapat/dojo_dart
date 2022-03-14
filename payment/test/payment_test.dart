@@ -161,6 +161,41 @@ void main() {
     //Assert
     expect(actualDisplay, display);
   });
+
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่มตัวเลขเงิน ครั้งที่ 1 กดเลข 9 และครั้งที่ 2 กดเลข 0 หน้าจอโชว์เลข90',
+          () {
+        var display = "90";
+
+        //Action
+        var payment = Payment();
+        payment.initAmount(1117.00);
+        payment.inputNumber('9');
+        payment.inputNumber('0');
+
+        var actualDisplay = payment.display;
+
+        //Assert
+        expect(actualDisplay, display);
+      });
+
+  test(
+      'รับยอดสุทธิ 1117.00 แล้วกดปุ่มตัวเลขเงิน 9 และ 0 กดชำระเงิน หน้าจอโชว์ผลการกดชำระเงินคงเหลือ 1027.00',
+          () {
+        var display = "1027.00";
+
+        //Action
+        var payment = Payment();
+        payment.initAmount(1117.00);
+        payment.inputNumber('9');
+        payment.inputNumber('0');
+        payment.payFromInput();
+
+        var actualDisplay = payment.display;
+
+        //Assert
+        expect(actualDisplay, display);
+      },skip:"skip");
 }
 
 /**

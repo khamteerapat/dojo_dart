@@ -6,7 +6,7 @@ class Payment {
   get netAmount => _netAmount;
   get remainingAmount => _remainingAmount;
 
-  get display => null;
+  get display => _numpadInput;
 
   void pay(double amount) {
     _remainingAmount = _remainingAmount - amount;
